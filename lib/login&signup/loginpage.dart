@@ -16,20 +16,26 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
+    final isKeyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
+    final logoheight = isKeyboardVisible ? 75.0 : 120.0;
+    final logowidth = isKeyboardVisible ? 80.0 : 128.0;
     return Scaffold(
       backgroundColor: primaryColor,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
             flex: 2,
-            child: SafeArea(
-              child: Center(
+            child: Center(
+              child: AnimatedContainer(
+                margin: EdgeInsets.only(top: 30),
+                curve: Curves.ease,
+                duration: Duration(milliseconds: 300),
+                height: logoheight,
+                width: logowidth,
                 child: Image.asset(
-                  height: 120,
-                  width: 128,
                   "assets/images/logo.png",
                   fit: BoxFit.cover,
                 ),

@@ -17,17 +17,23 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
+    final isKeyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
+    final logoheight = isKeyboardVisible ? 75.0 : 120.0;
+    final logowidth = isKeyboardVisible ? 80.0 : 128.0;
     return Scaffold(
       backgroundColor: primaryColor,
       body: Column(
         children: [
           Expanded(
             flex: 2,
-            child: SafeArea(
-              child: Center(
+            child: Center(
+              child: AnimatedContainer(
+                margin: EdgeInsets.only(top: 30),
+                curve: Curves.ease,
+                duration: Duration(milliseconds: 300),
+                height: logoheight,
+                width: logowidth,
                 child: Image.asset(
-                  height: 120,
-                  width: 128,
                   "assets/images/logo.png",
                   fit: BoxFit.cover,
                 ),
@@ -47,10 +53,9 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               child: SingleChildScrollView(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(50.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: Text(
                         "WELCOME!",
                         style: TextStyle(
@@ -80,7 +85,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     CustomButton1(
                       width: 320,
                       height: 50,
-                      title: "LOGIN",
+                      title: "SIGN UP",
                     ),
                     SizedBox(height: 25),
                     Text(
@@ -127,7 +132,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         )
                       ],
-                    )
+                    ),
+                    SizedBox(height: 25),
                   ],
                 ),
               ),
