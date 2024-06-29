@@ -14,7 +14,7 @@ class CustomButton1 extends StatelessWidget {
   final Color? titlecolor;
 
   const CustomButton1({
-    Key? key,
+    super.key,
     this.height,
     this.width,
     required this.title,
@@ -25,7 +25,7 @@ class CustomButton1 extends StatelessWidget {
     this.backgroundcolor,
     this.onTap,
     this.titlecolor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

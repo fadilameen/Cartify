@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:furni/components/custombutton1.dart';
+
 import '../components/customtextfield.dart';
 import '../components/theme.dart';
 import 'signuppage.dart';
@@ -23,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
-            flex: 3,
+            flex: 2,
             child: SafeArea(
               child: Center(
                 child: Image.asset(
@@ -36,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Expanded(
-            flex: 7,
+            flex: 8,
             child: Container(
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
@@ -123,7 +124,7 @@ class _LoginPageState extends State<LoginPage> {
                         Image.asset("assets/images/GOOGLE.png"),
                       ],
                     ),
-                    SizedBox(height: 50),
+                    SizedBox(height: 40),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
