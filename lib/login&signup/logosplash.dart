@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:furni/components/custombutton1.dart';
 import 'package:furni/components/theme.dart';
+import 'loginorsignup.dart';
 
 class LogoSplash extends StatelessWidget {
   const LogoSplash({super.key});
@@ -30,15 +31,23 @@ class LogoSplash extends StatelessWidget {
               height: 48,
               width: 250,
               title: "GET STARTED",
-              fontsize: 25,
+              titlecolor: buttonColor,
+              fontSize: 25,
               fontWeight: FontWeight.bold,
-              shadow: [
+              textShadows: [
                 Shadow(
                   blurRadius: 3.0,
                   color: Colors.black.withOpacity(0.5),
                   offset: Offset(2.0, 2.0),
                 ),
               ],
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Loginorsignup(),
+                    ));
+              },
             ),
           )
         ],
