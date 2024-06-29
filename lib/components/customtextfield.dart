@@ -4,12 +4,13 @@ class CustomTextField extends StatelessWidget {
   final double? height;
   final String hintText;
   final IconData iconData;
-  const CustomTextField({
-    super.key,
-    this.height,
-    required this.hintText,
-    required this.iconData,
-  });
+  final FocusNode? focusNode;
+  const CustomTextField(
+      {super.key,
+      this.height,
+      required this.hintText,
+      required this.iconData,
+      this.focusNode});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +18,7 @@ class CustomTextField extends StatelessWidget {
       height: height,
       width: 320,
       child: TextField(
+        focusNode: focusNode,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextStyle(fontSize: 20),
