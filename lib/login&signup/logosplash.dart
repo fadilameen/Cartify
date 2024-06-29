@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:furni/components/custombutton1.dart';
 import 'package:furni/components/theme.dart';
+import 'package:furni/primary/homepage.dart';
 import 'loginorsignup.dart';
 
 class LogoSplash extends StatelessWidget {
@@ -15,12 +16,22 @@ class LogoSplash extends StatelessWidget {
       body: Stack(
         children: [
           Center(
-            child: Container(
-              height: 172,
-              width: 185,
-              child: Image.asset(
-                "assets/images/logo.png",
-                fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Homepage(),
+                  ),
+                );
+              },
+              child: SizedBox(
+                height: 172,
+                width: 185,
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
