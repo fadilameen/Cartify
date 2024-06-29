@@ -19,7 +19,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
       backgroundColor: primaryColor,
       body: Stack(
         children: [
@@ -102,14 +101,20 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ),
-                  Spacer(),
+                  SizedBox(
+                    height: 30,
+                  ),
                   CustomButton1(width: 320, height: 50, title: "LOGIN"),
-                  Spacer(),
+                  SizedBox(
+                    height: 25,
+                  ),
                   Text(
                     "or",
                     style: TextStyle(color: Colors.grey, fontSize: 18),
                   ),
-                  Spacer(),
+                  SizedBox(
+                    height: 25,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -120,7 +125,7 @@ class _LoginPageState extends State<LoginPage> {
                       Image.asset("assets/images/GOOGLE.png"),
                     ],
                   ),
-                  Spacer(),
+                  SizedBox(height: 50),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -132,22 +137,21 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 17),
                       ),
                       InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SignUpPage(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          "Sign up",
-                          style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.grey,
-                              fontFamily: "Sen"),
-                        ),
-                      )
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SignUpPage(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Sign up",
+                            style: TextStyle(
+                                fontSize: 17,
+                                color: Colors.grey,
+                                fontFamily: "Sen"),
+                          ))
                     ],
                   )
                 ],
