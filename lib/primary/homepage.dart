@@ -1,78 +1,133 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:furni/components/categorycard.dart';
+import 'package:furni/components/productcard.dart';
 import 'package:furni/components/theme.dart';
+import 'package:furni/primary/searchpage.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _HomepageState extends State<Homepage> {
-  int _selectedIndex = 0;
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: Image.asset(
+            "assets/images/logosmall.png",
+            height: 23,
+            width: 23,
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Searchpage(),
+                    ));
+              },
+              icon: Icon(
+                Icons.search_outlined,
+                color: primaryColor,
+              ),
+            ),
+          ],
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SectionHeader(title: "New Arrivals"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ProductCard(
+                    imageString: "assets/images/jordan23.png",
+                    brand: 'Nike',
+                    model: 'Jordan 23 Engineered',
+                    newPrice: "₹2000",
+                    oldPrice: '₹4000'),
+                ProductCard(
+                    imageString: "assets/images/crewneckshirt.png",
+                    brand: 'Nike',
+                    model: 'Crew-Neck Sweatshirt',
+                    newPrice: "₹2000",
+                    oldPrice: '₹4000')
+              ],
+            ),
+            SectionHeader(title: "Category "),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CategoryCard(
+                  title: "Shoes",
+                  imageString: "assets/images/shoes.png",
+                ),
+                CategoryCard(
+                  title: "T-Shirts",
+                  imageString: "assets/images/shirts.png",
+                )
+              ],
+            ),
+            SectionHeader(title: "Popular"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ProductCard(
+                    imageString: "assets/images/nikeairmax.png",
+                    brand: 'Nike',
+                    model: 'Nike Air Max AP',
+                    newPrice: "₹6000",
+                    oldPrice: '₹7000'),
+                ProductCard(
+                    imageString: "assets/images/nikeimpact.png",
+                    brand: 'Nike',
+                    model: 'Nike Impact 4v',
+                    newPrice: "₹6000",
+                    oldPrice: '₹7000')
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
 
-  // Define icons for selected and unselected states
-  static const List<IconData> _selectedIcons = [
-    Icons.home_rounded,
-    Icons.favorite_rounded,
-    Icons.shopping_cart,
-    Icons.person_rounded,
-  ];
+class SectionHeader extends StatelessWidget {
+  final String title;
 
-  static const List<IconData> _unselectedIcons = [
-    Icons.home_outlined,
-    Icons.favorite_outline_rounded,
-    Icons.shopping_cart_outlined,
-    Icons.person_outline_rounded,
-  ];
+  const SectionHeader({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: primaryColor,
-        currentIndex: _selectedIndex,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              _selectedIndex == 0 ? _selectedIcons[0] : _unselectedIcons[0],
-              color: Colors.white,
+    return SizedBox(
+      height: 30,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16, right: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              _selectedIndex == 1 ? _selectedIcons[1] : _unselectedIcons[1],
-              color: Colors.white,
+            Text(
+              'See All',
+              style: TextStyle(
+                  color: primaryColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25),
             ),
-            label: 'Favorite',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              _selectedIndex == 2 ? _selectedIcons[2] : _unselectedIcons[2],
-              color: Colors.white,
-            ),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              _selectedIndex == 3 ? _selectedIcons[3] : _unselectedIcons[3],
-              color: Colors.white,
-            ),
-            label: 'Person',
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
