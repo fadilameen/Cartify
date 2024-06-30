@@ -24,7 +24,7 @@ class WishlistCard extends StatelessWidget {
           color: Color(0xFFECEAEA),
           boxShadow: [
             BoxShadow(
-              color: Colors.black54,
+              color: Colors.black38,
               offset: Offset(2, 2),
               blurRadius: 6,
             ),
