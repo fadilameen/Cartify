@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:furni/components/custombutton1.dart';
+import 'package:furni/primary/primary.dart';
 
 import '../components/customtextfield.dart';
 import '../components/theme.dart';
@@ -109,7 +110,19 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 30,
                     ),
-                    CustomButton1(width: 320, height: 50, title: "LOGIN"),
+                    CustomButton1(
+                      width: 320,
+                      height: 50,
+                      title: "LOGIN",
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Primary(),
+                          ),
+                        );
+                      },
+                    ),
                     SizedBox(
                       height: 25,
                     ),

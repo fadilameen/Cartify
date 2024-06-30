@@ -88,6 +88,7 @@ class WishlistCard extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(left: 6, right: 6, bottom: 3.5),
               child: CustomButton1(
+                bordercolor: primaryColor,
                 fontSize: 22,
                 height: 32,
                 title: "Add To Cart",
