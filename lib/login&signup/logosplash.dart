@@ -43,7 +43,7 @@ class LogoSplash extends StatelessWidget {
               height: 48,
               width: 250,
               title: "GET STARTED",
-              titlecolor: buttonColor,
+              titlecolor: Colors.white,
               fontSize: 25,
               fontWeight: FontWeight.bold,
               textShadows: [
@@ -54,7 +54,7 @@ class LogoSplash extends StatelessWidget {
                 ),
               ],
               onTap: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => Loginorsignup(),

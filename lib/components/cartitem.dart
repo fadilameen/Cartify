@@ -24,7 +24,7 @@ class _CartItemState extends State<CartItem> {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Color(0xFFECEAEA),
+          color: Color(0xFFECE9E9),
           boxShadow: [
             BoxShadow(
               color: Colors.black38,

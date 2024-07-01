@@ -17,6 +17,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: LogoSplash(),
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          iconTheme: IconThemeData(
+            color: primaryColor,
+          ),
+          titleTextStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 26,
+            color: Colors.black,
+            fontFamily: 'Sen',
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+        ),
+        scaffoldBackgroundColor: Color(0xFFF0F0EF),
         primaryColor: primaryColor,
         fontFamily: 'Sen',
       ),
