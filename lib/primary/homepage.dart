@@ -9,6 +9,7 @@ import 'package:furni/primary/searchpage.dart';
 import 'package:furni/secondary/categorylist.dart';
 import 'package:furni/secondary/newarrival.dart';
 import 'package:furni/secondary/popularlist.dart';
+import 'package:furni/secondary/productview.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -113,6 +114,13 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ProductCard(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductViewPage(),
+                          ));
+                    },
                     imageString: "assets/images/nikeairmax.png",
                     brand: 'Nike',
                     model: 'Nike Air Max AP',

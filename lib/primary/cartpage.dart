@@ -5,6 +5,7 @@ import 'package:furni/components/cartitem.dart';
 import 'package:furni/components/custombutton1.dart';
 import 'package:furni/components/customrow.dart';
 import 'package:furni/components/theme.dart';
+import 'package:furni/payment/checkout.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -157,6 +158,13 @@ class _CartPageState extends State<CartPage> {
                 bordercolor: primaryColor,
                 height: 36,
                 fontSize: 21,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Checkout(),
+                      ));
+                },
               ),
             ),
           ),
