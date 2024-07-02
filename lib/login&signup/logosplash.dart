@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:furni/components/custombutton1.dart';
 import 'package:furni/components/theme.dart';
-import 'package:furni/primary/homepage.dart';
 import 'package:furni/primary/primary.dart';
 import 'loginorsignup.dart';
 

@@ -3,8 +3,9 @@ import 'package:furni/components/theme.dart';
 
 class SectionHeader extends StatelessWidget {
   final String title;
+  final void Function()? onTap;
 
-  const SectionHeader({super.key, required this.title});
+  const SectionHeader({super.key, required this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +20,15 @@ class SectionHeader extends StatelessWidget {
               title,
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
-            Text(
-              'See All',
-              style: TextStyle(
-                  color: primaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 25),
+            InkWell(
+              onTap: onTap,
+              child: Text(
+                'See All',
+                style: TextStyle(
+                    color: primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 25),
+              ),
             ),
           ],
         ),

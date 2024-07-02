@@ -42,81 +42,90 @@ class _ProductCardState extends State<ProductCard> {
       width: 160,
       height: 190,
       margin: const EdgeInsets.all(8.0),
-      child: Stack(
+      child: Column(
         children: [
-          Image.asset(
-            widget.imageString,
-            fit: BoxFit.cover,
-            width: 160,
+          Container(
+            width: double.infinity,
             height: 135,
-          ),
-          Positioned(
-            left: 10,
-            bottom: 35,
-            child: Text(
-              widget.brand,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                  color: Colors.grey),
-            ),
-          ),
-          Positioned(
-            left: 10,
-            bottom: 19,
-            child: Text(
-              widget.model,
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(12),
+                topLeft: Radius.circular(12),
+              ),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(
+                  widget.imageString,
+                ),
               ),
             ),
           ),
-          Positioned(
-            left: 10,
-            bottom: 3,
-            child: Row(
-              children: [
-                Text(
-                  widget.newPrice,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.brand,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: Colors.grey),
                   ),
-                ),
-                SizedBox(
-                  width: 7,
-                ),
-                Text(
-                  widget.oldPrice,
-                  style: TextStyle(
-                      decoration: TextDecoration.lineThrough,
-                      fontWeight: FontWeight.bold,
+                  Text(
+                    widget.model,
+                    style: TextStyle(
                       fontSize: 16,
-                      color: Colors.grey),
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            top: -4,
-            right: -4,
-            child: IconButton(
-              onPressed: () {
-                setState(() {
-                  isFavorite = !isFavorite;
-                });
-              },
-              icon: Icon(
-                size: 22,
-                isFavorite
-                    ? Icons.favorite_rounded
-                    : Icons.favorite_outline_rounded,
-                color: isFavorite ? Colors.red : primaryColor,
+                      color: Colors.black,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        widget.newPrice,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 7,
+                      ),
+                      Text(
+                        widget.oldPrice,
+                        style: TextStyle(
+                            decoration: TextDecoration.lineThrough,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-          )
+          ),
+          // Positioned(
+          //   top: -4,
+          //   right: -4,
+          //   child: IconButton(
+          //     onPressed: () {
+          //       setState(() {
+          //         isFavorite = !isFavorite;
+          //       });
+          //     },
+          //     icon: Icon(
+          //       size: 22,
+          //       isFavorite
+          //           ? Icons.favorite_rounded
+          //           : Icons.favorite_outline_rounded,
+          //       color: isFavorite ? Colors.red : primaryColor,
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );

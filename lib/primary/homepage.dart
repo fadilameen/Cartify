@@ -6,6 +6,9 @@ import 'package:furni/components/productcard.dart';
 import 'package:furni/components/sectionheader.dart';
 import 'package:furni/components/theme.dart';
 import 'package:furni/primary/searchpage.dart';
+import 'package:furni/secondary/categorylist.dart';
+import 'package:furni/secondary/newarrival.dart';
+import 'package:furni/secondary/popularlist.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,7 +48,16 @@ class _HomePageState extends State<HomePage> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SectionHeader(title: "New Arrivals"),
+            SectionHeader(
+              title: "New Arrivals",
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => NewArrival(),
+                    ));
+              },
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -63,7 +75,17 @@ class _HomePageState extends State<HomePage> {
                     oldPrice: '₹4000')
               ],
             ),
-            SectionHeader(title: "Category "),
+            SectionHeader(
+              title: "Category ",
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CategoryList(),
+                  ),
+                );
+              },
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -73,11 +95,20 @@ class _HomePageState extends State<HomePage> {
                 ),
                 CategoryCard(
                   title: "T-Shirts",
-                  imageString: "assets/images/shirts.png",
+                  imageString: "assets/images/tshirts.png",
                 )
               ],
             ),
-            SectionHeader(title: "Popular"),
+            SectionHeader(
+              title: "Popular",
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PopularList(),
+                    ));
+              },
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

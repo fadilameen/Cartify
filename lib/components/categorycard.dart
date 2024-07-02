@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -13,8 +15,10 @@ class CategoryCard extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
+            image: DecorationImage(image: AssetImage(imageString)),
             borderRadius: BorderRadius.circular(12),
-            color: Colors.white,
+            // border: Border.all(),
+            color: Colors.transparent,
             boxShadow: [
               BoxShadow(
                 color: Colors.black38,
@@ -25,15 +29,11 @@ class CategoryCard extends StatelessWidget {
           ),
           width: 165,
           height: 165,
-          child: Image.asset(
-            imageString,
-            fit: BoxFit.cover,
-          ),
         ),
         Text(
           title,
           style: TextStyle(
-            fontSize: 19,
+            fontSize: 20,
             color: Colors.black,
           ),
         )
