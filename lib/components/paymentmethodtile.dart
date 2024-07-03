@@ -6,12 +6,14 @@ class PaymentMethodTile extends StatelessWidget {
   final void Function()? onPressed;
   final String title;
   final bool filled;
+  final IconData iconData;
 
   const PaymentMethodTile({
     super.key,
     this.onPressed,
     required this.title,
     required this.filled,
+    required this.iconData,
   });
 
   @override
@@ -54,7 +56,7 @@ class PaymentMethodTile extends StatelessWidget {
             IconButton(
               onPressed: onPressed,
               icon: Icon(
-                Icons.expand_more_rounded,
+                iconData,
                 color: primaryColor,
                 size: 35,
               ),
