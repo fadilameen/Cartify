@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:furni/components/circlebutton.dart';
 import 'package:furni/components/custombutton1.dart';
 import 'package:furni/components/customrow.dart';
 import 'package:furni/components/theme.dart';
+import 'package:furni/others/processingpaymentanimation.dart';
+import 'package:furni/payment/changeaddress.dart';
+import 'package:furni/payment/paymentsettings.dart';
 
 class Checkout extends StatelessWidget {
   const Checkout({super.key});
@@ -53,10 +57,7 @@ class Checkout extends StatelessWidget {
                     SizedBox(
                       width: 12,
                     ),
-                    Icon(
-                      Icons.circle_outlined,
-                      color: primaryColor,
-                    ),
+                    CircleButton(filled: true),
                     SizedBox(
                       width: 20,
                     ),
@@ -95,6 +96,13 @@ class Checkout extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 10),
               child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChangeAddressPage(),
+                      ));
+                },
                 child: Container(
                   height: 39,
                   decoration: BoxDecoration(
@@ -103,7 +111,7 @@ class Checkout extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      "Payment",
+                      "Change Address",
                       style: TextStyle(
                         color: primaryColor,
                         fontSize: 18,
@@ -152,7 +160,13 @@ class Checkout extends StatelessWidget {
                   ),
                   Spacer(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PaymentSettings(),
+                          ));
+                    },
                     icon: Icon(
                       Icons.chevron_right_rounded,
                       color: primaryColor,
@@ -222,6 +236,13 @@ class Checkout extends StatelessWidget {
               height: 40,
             ),
             CustomButton1(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ImageCyclerPage(),
+                    ));
+              },
               title: "Pay Now",
               height: 36,
               backgroundcolor: primaryColor,

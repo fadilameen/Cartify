@@ -2,8 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:furni/components/customlistviewcontainer.dart';
+import 'package:furni/components/orderhistorycard.dart';
 import 'package:furni/components/profilesectionheader.dart';
 import 'package:furni/components/theme.dart';
+import 'package:furni/order/orderhistory.dart';
+import 'package:furni/order/trackorder.dart';
+import 'package:furni/others/notifications.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -87,11 +91,25 @@ class _ProfilePageState extends State<ProfilePage> {
                 CustomListTile(
                   leadingIcon: Icons.location_on,
                   title: 'Track Order',
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TrackOrderPage(),
+                        ));
+                  },
                 ),
                 CustomDivider(),
                 CustomListTile(
                   leadingIcon: Icons.history_rounded,
                   title: 'Order History',
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OrderHistoryPage(),
+                        ));
+                  },
                 ),
               ]),
               ProfileSectionHeader(sectionTitle: "General"),
@@ -109,6 +127,13 @@ class _ProfilePageState extends State<ProfilePage> {
                 CustomListTile(
                   leadingIcon: Icons.notifications,
                   title: 'Notifications',
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Notifications(),
+                        ));
+                  },
                 ),
                 CustomDivider(),
                 CustomListTile(

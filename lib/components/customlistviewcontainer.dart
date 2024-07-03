@@ -43,11 +43,13 @@ class CustomDivider extends StatelessWidget {
 class CustomListTile extends StatelessWidget {
   final IconData leadingIcon;
   final String title;
+  late void Function()? onTap;
 
-  const CustomListTile({
+  CustomListTile({
     super.key,
     required this.leadingIcon,
     required this.title,
+    this.onTap,
   });
 
   @override
@@ -82,6 +84,7 @@ class CustomListTile extends StatelessWidget {
             size: 31,
             color: primaryColor,
           ),
+          onTap: onTap,
         ),
       ],
     );
